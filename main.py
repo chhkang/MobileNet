@@ -7,11 +7,10 @@ import torch.nn as nn
 import torch.optim as optim
 import torch.backends.cudnn as cudnn
 
-from model import SqueezeNet
+from model import MobileNet
 from utils import *
 from config import config
 from data import DataLoader
-from matplotlib import pyplot as plt
 
 best_acc1 = 0
 
@@ -23,8 +22,8 @@ def main():
     if args.cuda and not torch.cuda.is_available():
         raise Exception('No GPU found, please run without --cuda')
 
-    print('\n=> Build SqueezeNet..')
-    model = SqueezeNet()
+    print('\n=> Build MobileNet..')
+    model = MobileNet()
     print(model)
 
     from thop import profile
